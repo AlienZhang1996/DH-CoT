@@ -76,7 +76,9 @@ Rejection rates (reported as complements, which is 1 − rejection rate) for eac
     <img src='./figures/fig6_D-Atk_attack.png' alt='fig1_title.png' title='fig1_title.png' style="width:65%;" />
 </p>
 
-ASR of D-Attack on the RTA-series datasets.
+<p align="center">
+    ASR of D-Attack on the RTA-series datasets.
+</p>
 
 
 
