@@ -12,15 +12,15 @@ Red teaming for large language models faces two key challenges: datasets and jai
 
 
 
-|       ![子图1](./figures/fig1_unsuitable_samples.png)        |     ![子图2](./figures/fig2_MDH_pipeline.png)     |
-| :----------------------------------------------------------: | :-----------------------------------------------: |
-| Fig.1: A Taxonomy of prompts (samples) in red teaming datasets. SG denotes Safeguards. | Fig.2: MDH workflow and its use in data cleaning. |
+|       ![子图1](./figures/fig1_unsuitable_samples.png)        | ![子图2](./figures/fig2_MDH_pipeline.png)  |
+| :----------------------------------------------------------: | :----------------------------------------: |
+| A Taxonomy of prompts (samples) in red teaming datasets. SG denotes Safeguards. | MDH workflow and its use in data cleaning. |
 
 
 
 |         ![子图1](./figures/fig3_attacks_pipline.png)         |
 | :----------------------------------------------------------: |
-| Fig.3: Flowchart of D-Attack and DH-CoT, using examples from GPT-4o and o4-Mini. |
+| Flowchart of D-Attack and DH-CoT, using examples from GPT-4o and o4-Mini. |
 
 
 
