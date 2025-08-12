@@ -12,6 +12,12 @@ Red teaming for large language models faces two key challenges: datasets and jai
 
 
 
+| ![子图1](./figures/fig1_unsuitable_samples.png) | ![子图2](./figures/fig2_MDH_pipeline.png) |
+| :---------------------------------------------: | :---------------------------------------: |
+|                 （a）子图1说明                  |              （b）子图2说明               |
+
+
+
 <p align="center">
   <img src="./figures/fig1_unsuitable_samples.png" alt="子图1" width="45%">
   <img src="./figures/fig2_MDH_pipeline.png" alt="子图2" width="45%">
