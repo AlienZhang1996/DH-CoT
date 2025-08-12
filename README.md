@@ -32,19 +32,17 @@ Red teaming for large language models faces two key challenges: datasets and jai
 
 
 
-
 ## RTA Dataset Series
 
-<center class='half'>
-    <img src='./figures/fig4_RTA_construction.png' alt='fig1_title.png' title='fig1_title.png' style="width:100%;" />
-</center>
+### Data Distribution
 
-<div style="display: flex; justify-content: center;">
-  <div style="width: 100%; margin: 0 1%; text-align: center;">
-     Fig.4: Data distribution of each dataset in RTA.
-  </div>
-</div>
+<p align="center">
+  <img src="./figures/fig4_RTA_construction.png" alt="子图1" width="100%">
+</p>
 
+
+
+### Dataset Cleaning Summary
 
 
 |      Dataset      | Original Size | Current Size | Types | Removed | Modified | Edit-Removal Ratio (%) |
@@ -55,23 +53,18 @@ Red teaming for large language models faces two key challenges: datasets and jai
 |    BeaverTails    |      700      |     500      | 9/14  |   200   |   190    |         55.71          |
 | MaliciousEducator |      50       |      50      | 8/10  |    0    |    0     |           0            |
 
-<div style="display: flex; justify-content: center;">
-  <div style="width: 100%; margin: 0 1%; text-align: center;">
-     Table 1: Dataset Purifying Summary. The Type column shows the number of types after cleaning (removal / merging) and the original count. The Removed and Modified columns indicate samples removed and rewrote, respectively.
-  </div>
-</div>
+The *Type* column shows the number of types after cleaning (removal / merging) and the original count. The *Removed* and *Modified* columns indicate samples removed and rewrote, respectively.
 
+
+
+### Rejection Rate on Vanilla Attack
 
 
 <center class='half'>
     <img src='./figures/fig5_vallia_attack.png' alt='fig1_title.png' title='fig1_title.png' style="width:85%;" />
 </center>
+Rejection rates (reported as complements, which is 1 − rejection rate) for each dataset, to facilitate comparison with results in  section of *Jailbreak Results*. *All* includes all malicious types of samples; *w/o AC* excludes samples of Adult Content. Vanilla Attack refers to the situation where the prompt in the dataset is used to directly query the LLM.
 
-<div style="display: flex; justify-content: center;">
-  <div style="width: 100%; margin: 0 1%; text-align: center;">
-     Table 2: Rejection rates (reported as complements, which is 1 − rejection rate) for each dataset, to facilitate comparison with Table 3 and Table 4. “All” includes all malicious types of samples; “w/o AC” excludes samples of Adult Content.
-  </div>
-</div>
 
 
 
