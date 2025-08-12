@@ -72,27 +72,23 @@ Rejection rates (reported as complements, which is 1 − rejection rate) for eac
 
 ### D-Attack
 
-<center class='half'>
+<p align="center">
     <img src='./figures/fig6_D-Atk_attack.png' alt='fig1_title.png' title='fig1_title.png' style="width:65%;" />
-</center>
+</p>
 
-<div style="display: flex; justify-content: center;">
-  <div style="width: 100%; margin: 0 1%; text-align: center;">
-     Table 3: ASR of D-Attack on the RTA-series datasets.
-  </div>
-</div>
+ASR of D-Attack on the RTA-series datasets.
+
+
+
 
 ### DH-CoT
 
-<center class='half'>
+<p align="center">
     <img src='./figures/fig7_DH-CoT_attack.png' alt='fig1_title.png' title='fig1_title.png' style="width:80%;" />
-</center>
+</p>
 
-<div style="display: flex; justify-content: center;">
-  <div style="width: 100%; margin: 0 1%; text-align: center;">
-     Table 4: Comparison of ASR between DH-CoT and current SOTA jailbreak methods on the RTA-MaliciousEducator dataset. All values are computed using MDH. D9 and D10 refer to the Q&A examples used in DH-CoT’s developer messages.
-  </div>
-</div>
+Comparison of ASR between DH-CoT and current SOTA jailbreak methods on the RTA-MaliciousEducator dataset. All values are computed using MDH. D9 and D10 refer to the Q&A examples used in DH-CoT’s developer messages.
+
 
 
 
