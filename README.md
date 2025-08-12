@@ -59,10 +59,10 @@ The *Type* column shows the number of types after cleaning (removal / merging) a
 
 ### Rejection Rate on Vanilla Attack
 
-
-<center class='half'>
+<p align="center">
     <img src='./figures/fig5_vallia_attack.png' alt='fig1_title.png' title='fig1_title.png' style="width:85%;" />
-</center>
+</p>
+
 Rejection rates (reported as complements, which is 1 − rejection rate) for each dataset, to facilitate comparison with results in  section of *Jailbreak Results*. *All* includes all malicious types of samples; *w/o AC* excludes samples of Adult Content. Vanilla Attack refers to the situation where the prompt in the dataset is used to directly query the LLM.
 
 
