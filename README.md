@@ -18,16 +18,10 @@ Red teaming for large language models faces two key challenges: datasets and jai
 
 
 
+|         ![子图1](./figures/fig3_attacks_pipline.png)         |
+| :----------------------------------------------------------: |
+| Fig.3: Flowchart of D-Attack and DH-CoT, using examples from GPT-4o and o4-Mini. |
 
-<center class='half'>
-    <img src='./figures/fig3_attacks_pipline.png' alt='fig1_title.png' title='fig1_title.png' width='' />
-</center>
-
-<div style="display: flex; justify-content: center;">
-  <div style="width: 100%; margin: 0 1%; text-align: center;">
-     Fig.3: Flowchart of D-Attack and DH-CoT, using examples from GPT-4o and o4-Mini.
-  </div>
-</div>
 
 
 **Todo List**
