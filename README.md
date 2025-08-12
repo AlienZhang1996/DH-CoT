@@ -12,46 +12,10 @@ Red teaming for large language models faces two key challenges: datasets and jai
 
 
 
-| ![子图1](./figures/fig1_unsuitable_samples.png) | ![子图2](./figures/fig2_MDH_pipeline.png) |
-| :---------------------------------------------: | :---------------------------------------: |
-|                 （a）子图1说明                  |              （b）子图2说明               |
+|       ![子图1](./figures/fig1_unsuitable_samples.png)        |     ![子图2](./figures/fig2_MDH_pipeline.png)     |
+| :----------------------------------------------------------: | :-----------------------------------------------: |
+| Fig.1: A Taxonomy of prompts (samples) in red teaming datasets. SG denotes Safeguards. | Fig.2: MDH workflow and its use in data cleaning. |
 
-
-
-<p align="center">
-  <img src="./figures/fig1_unsuitable_samples.png" alt="子图1" width="45%">
-  <img src="./figures/fig2_MDH_pipeline.png" alt="子图2" width="45%">
-</p>
-
-<p align="center">
-  （a）子图1说明 &nbsp;&nbsp;&nbsp;&nbsp; （b）子图2说明
-</p>
-
-
-
-
-
-<img src="./figures/fig1_unsuitable_samples.png" width="48%" style="margin-right:2%;"><img src="./figures/fig2_MDH_pipeline.png" width="48%">
-
-
-
-<div style="display: flex; justify-content: center; align-items: center;">
-  <div style="width: 45%; margin: 0 1%; display: flex; justify-content: center; align-items: center;">
-    <img src="./figures/fig1_unsuitable_samples.png" alt="子图1" style="max-width: 100%; height: auto;">
-  </div>
-  <div style="width: 45%; margin: 0 1%; display: flex; justify-content: center; align-items: center;">
-    <img src="./figures/fig2_MDH_pipeline.png" alt="子图2" style="max-width: 100%; height: auto;">
-  </div>
-</div>
-
-<div style="display: flex; justify-content: center;">
-  <div style="width: 45%; margin: 0 1%; text-align: center;">
-    Fig.1: A Taxonomy of prompts (samples) in red teaming datasets. SG denotes Safeguards.
-  </div>
-  <div style="width: 45%; margin: 0 1%; text-align: center;">
-    Fig.2: MDH workflow and its use in data cleaning.
-  </div>
-</div>
 
 
 
