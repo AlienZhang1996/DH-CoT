@@ -10,13 +10,13 @@ Jailbreaking Commercial Black-Box LLMs with Explicitly Harmful Prompts
 
 Red teaming for large language models faces two key challenges: datasets and jailbreak attacks. In existing red-teaming datasets, many samples fall into three categories that are unsuitable for attacks: (1) Benign Prompts (BP), (2) Non-obvious Harmful Prompts (NHP), and (3) Non-Triggering Harmful-Response Prompts (NTP). We propose a malicious content detection framework, **MDH** (**M**alicious content **D**etection based on LLMs with **H**uman assistance), to clean existing red-teaming datasets and ultimately construct the **RTA** (**R**ed-**T**eaming datasets for **A**ttack) dataset series. Regarding jailbreak attacks, we find that well-crafted developer messages can significantly boost jailbreak success, leading us to propose two new strategies: **D-Attack**, which leverages context simulation, and **DH-CoT**, which incorporates hijacked chains of thought. In addition, MDH can also be applied to jailbreak response detection; therefore, in this work, we use MDH to compute the ASR (Attack Success Rate).
 
-
+### MDH
 
 |       ![子图1](./figures/fig1_unsuitable_samples.png)        | ![子图2](./figures/fig2_MDH_pipeline.png)  |
 | :----------------------------------------------------------: | :----------------------------------------: |
 | A Taxonomy of prompts (samples) in red teaming datasets. SG denotes Safeguards. | MDH workflow and its use in data cleaning. |
 
-
+### D-Attack & DH-CoT
 
 |         ![子图1](./figures/fig3_attacks_pipline.png)         |
 | :----------------------------------------------------------: |
