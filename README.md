@@ -2,7 +2,7 @@
 
 Official [PyTorch](https://pytorch.org/) implementation of the paper:
 
-Jailbreaking Commercial Black-Box LLMs with Explicitly Harmful Prompts
+[Jailbreaking Commercial Black-Box LLMs with Explicitly Harmful Prompts](http://arxiv.org/abs/2508.10390)
 
 [Chiyu Zhang](https://alienzhang1996.github.io/), [Lu Zhou](https://faculty.nuaa.edu.cn/zhoulu2020/zh_CN/index.htm), [Xiaogang Xu](https://scholar.google.com/citations?user=R65xDQwAAAAJ), [Jiafei Wu](https://dblp.org/pid/227/7227.html), [Liming Fang](https://scholar.google.com/citations?user=8p2FacYAAAAJ), [Zhe Liu](https://scholar.google.com/citations?user=Em0jNiUAAAAJ)
 
