@@ -8,7 +8,9 @@ Official [PyTorch](https://pytorch.org/) implementation of the paper:
 
 
 
-Red teaming for large language models faces two key challenges: datasets and jailbreak attacks. In existing red-teaming datasets, many samples fall into three categories that are unsuitable for attacks: (1) Benign Prompts (BP), (2) Non-obvious Harmful Prompts (NHP), and (3) Non-Triggering Harmful-Response Prompts (NTP). We propose a malicious content detection framework, **MDH** (**M**alicious content **D**etection based on LLMs with **H**uman assistance), to clean existing red-teaming datasets and ultimately construct the **RTA** (**R**ed-**T**eaming datasets for **A**ttack) dataset series. Regarding jailbreak attacks, we find that well-crafted developer messages can significantly boost jailbreak success, leading us to propose two new strategies: **D-Attack**, which leverages context simulation, and **DH-CoT**, which incorporates hijacked chains of thought. In addition, MDH can also be applied to jailbreak response detection; therefore, in this work, we use MDH to compute the ASR (Attack Success Rate).
+Existing black-box jailbreak attacks achieve certain success on non-reasoning models but degrade significantly on recent SOTA reasoning models. To improve attack ability, inspired by adversarial aggregation strategies, we integrate multiple jailbreak tricks into a single developer template. Especially, we apply **Adversarial Context Alignment** to purge semantic inconsistencies and use NTP (a type of harmful prompt) -based few-shot examples to guide malicious outputs, lastly forming **DH-CoT** attack with a fake chain of thought. In experiments, we further observe that existing red-teaming datasets include samples unsuitable for evaluating attack gains, such as BPs, NHPs, and NTPs. Such data hinders accurate evaluation of true attack effect lifts. To address this, we introduce **MDH**, a **M**alicious content **D**etection framework integrating LLM-based annotation with **H**uman assistance, with which we clean data and build **RTA** dataset suite. Experiments show that MDH reliably filters low-quality samples and that DH-CoT effectively jailbreaks models including GPT-5 and Claude-4, notably outperforming SOTA methods like H-CoT and TAP.
+
+
 
 ### MDH
 
@@ -86,12 +88,10 @@ Rejection rates (reported as complements, which is 1 − rejection rate) for eac
 ### DH-CoT
 
 <p align="center">
-    <img src='./figures/fig7_DH-CoT_attack.png' alt='fig1_title.png' title='fig1_title.png' style="width:80%;" />
+    <img src='./figures/fig7_DH-CoT_attack.png' alt='fig1_title.png' title='fig1_title.png' style="width:100%;" />
 </p>
 
-Comparison of ASR between DH-CoT and current SOTA jailbreak methods on the RTA-MaliciousEducator dataset. All values are computed using MDH. D9 and D10 refer to the Q&A examples used in DH-CoT’s developer messages.
-
-
+This table compares ASR of DH-CoT and D-Attack with current state-of-the-art jailbreak attacks on the RTA-MaliciousEducator dataset.. The compared methods fall into three categories: **1) query-based gray-box methods (top section)**, **2) template-based black-box methods (middle section)**, and **3) CoT-based black-box methods (bottom section)**. *Vanilla* denotes the attack success rate without any attack applied. PAIR and TAP are query-based gray-box methods, while DeepInception and SelfCipher are template-based black-box methods. H-CoT is a CoT-based black-box method. White-box methods require gradients or other internal model information and therefore cannot be evaluated on commercial black-box models. The column labels *3.5, 4o, 4.1, 5, 5.1, o1-m, o1, o3-m, o3, o4-m, 2.5-pro, 2.5-f-t, c35-s, c37-s, c4-s, c37-s-t, c4-s-t, d-v3, d-r1-0528*, and *d-r1* denote the victim models G*PT-3.5, GPT-4o, GPT-4.1, GPT-5, GPT-5.1, o1-Mini, o1, o3-Mini, o3, o4-Mini, Gemini-2.5-pro, Gemini-2.5-Flash-Thinking, Claude-3-5-Sonnet, Claude-3-7-Sonnet, Claude-3-7-Sonnet-Thinking, Claude-Sonnet-4, Claude-Sonnet-4-Thinking, Deepseek-V3, Deepseek-R1-250528*, and *Deepseek-R1*, respectively. *Sys* and *Dep* abbreviate the System and Developer prompt roles. A short dash (“-”) indicates the victim does not support the developer role. Blue-shaded columns mark victims that are reasoning models. All experimental results are computed using MDH. Each experiment is run three times and the best value is reported. The best result for each victim model is highlighted in bold.
 
 
 
