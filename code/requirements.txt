@@ -1,0 +1,12 @@
+# Python 3.10; research execution dependencies.
+numpy==1.26.4
+tqdm==4.65.0
+pandas==2.2.0
+tenacity==8.2.3
+pillow==10.2.0
+openai==1.84.0
+requests==2.31.0
+omegaconf==2.3.0
+httpx==0.28.1
+transformers==4.52.4
+torch==2.3.0

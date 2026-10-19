@@ -1,0 +1,3 @@
+# This utility rewrites matching response CSV files in place. Work on copies.
+dataset_csv: "../datasets/2_RTA/5_RTA-MaliciousEducator.csv"
+description_folder: "./outputs/responses_to_format"

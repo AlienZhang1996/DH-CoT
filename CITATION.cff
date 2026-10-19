@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use these artifacts, please cite the associated paper and the upstream datasets you use."
+type: software
+title: "DH-CoT research artifacts"
+authors:
+  - family-names: Zhang
+    given-names: Chiyu
+  - family-names: Zhou
+    given-names: Lu
+  - family-names: Xu
+    given-names: Xiaogang
+  - family-names: Wu
+    given-names: Jiafei
+  - family-names: Fang
+    given-names: Liming
+  - family-names: Liu
+    given-names: Zhe
+repository-code: "https://github.com/AlienZhang1996/DH-CoT"
+url: "https://arxiv.org/abs/2508.10390"
+preferred-citation:
+  type: article
+  title: "Jailbreaking Commercial Black-Box LLMs with Explicitly Harmful Prompts"
+  authors:
+    - family-names: Zhang
+      given-names: Chiyu
+    - family-names: Zhou
+      given-names: Lu
+    - family-names: Xu
+      given-names: Xiaogang
+    - family-names: Wu
+      given-names: Jiafei
+    - family-names: Fang
+      given-names: Liming
+    - family-names: Liu
+      given-names: Zhe
+  year: 2025
+  url: "https://arxiv.org/abs/2508.10390"

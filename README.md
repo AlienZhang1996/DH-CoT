@@ -1,99 +1,99 @@
 # Jailbreaking Commercial Black-Box LLMs with Explicitly Harmful Prompts
 
-Official [PyTorch](https://pytorch.org/) implementation of the paper:
+Code, datasets, and partial evaluation results for [Jailbreaking Commercial Black-Box LLMs with Explicitly Harmful Prompts](https://arxiv.org/abs/2508.10390).
 
-[Jailbreaking Commercial Black-Box LLMs with Explicitly Harmful Prompts](http://arxiv.org/abs/2508.10390)
+**Chiyu Zhang, Lu Zhou, Xiaogang Xu, Jiafei Wu, Liming Fang, and Zhe Liu**
 
-[Chiyu Zhang](https://alienzhang1996.github.io/), [Lu Zhou](https://faculty.nuaa.edu.cn/zhoulu2020/zh_CN/index.htm), [Xiaogang Xu](https://scholar.google.com/citations?user=R65xDQwAAAAJ), [Jiafei Wu](https://dblp.org/pid/227/7227.html), [Liming Fang](https://scholar.google.com/citations?user=8p2FacYAAAAJ), [Zhe Liu](https://scholar.google.com/citations?user=Em0jNiUAAAAJ)
+This work studies jailbreak attacks against commercial black-box LLMs using explicitly harmful prompts. It introduces **MDH**, a malicious-content detection framework combining model-based annotation with human assistance, and uses it to construct the **RTA** red-teaming dataset suite.
 
+The repository also provides the **D-Attack** and **DH-CoT** experimental implementations, including developer-message templates, H-CoT inputs, and model-response scoring tools.
 
-
-Existing black-box jailbreak attacks achieve certain success on non-reasoning models but degrade significantly on recent SOTA reasoning models. To improve attack ability, inspired by adversarial aggregation strategies, we integrate multiple jailbreak tricks into a single developer template. Especially, we apply **Adversarial Context Alignment** to purge semantic inconsistencies and use NTP (a type of harmful prompt) -based few-shot examples to guide malicious outputs, lastly forming **DH-CoT** attack with a fake chain of thought. In experiments, we further observe that existing red-teaming datasets include samples unsuitable for evaluating attack gains, such as BPs, NHPs, and NTPs. Such data hinders accurate evaluation of true attack effect lifts. To address this, we introduce **MDH**, a **M**alicious content **D**etection framework integrating LLM-based annotation with **H**uman assistance, with which we clean data and build **RTA** dataset suite. Experiments show that MDH reliably filters low-quality samples and that DH-CoT effectively jailbreaks models including GPT-5 and Claude-4, notably outperforming SOTA methods like H-CoT and TAP.
-
-
+## Method overview
 
 ### MDH
 
-|       ![子图1](./figures/fig1_unsuitable_samples.png)        | ![子图2](./figures/fig2_MDH_pipeline.png)  |
-| :----------------------------------------------------------: | :----------------------------------------: |
-| A Taxonomy of prompts (samples) in red teaming datasets. SG denotes Safeguards. | MDH workflow and its use in data cleaning. |
+MDH combines model-based judgment with human assistance for malicious-content detection and red-teaming dataset cleaning.
 
-### D-Attack & DH-CoT
+| <a href="figures/prompt_taxonomy.png"><img src="figures/prompt_taxonomy.png" alt="Prompt taxonomy" width="390"></a> | <a href="figures/mdh_pipeline.png"><img src="figures/mdh_pipeline.png" alt="MDH workflow" width="390"></a> |
+| :---: | :---: |
+| Prompt taxonomy. SG denotes safeguards. | MDH workflow and dataset cleaning. |
 
-|         ![子图1](./figures/fig3_attacks_pipline.png)         |
-| :----------------------------------------------------------: |
-| Flowchart of D-Attack and DH-CoT, using examples from GPT-4o and o4-Mini. |
+### D-Attack and DH-CoT
 
+The method overview illustrates the template components and adversarial context alignment used by D-Attack and DH-CoT.
 
+<p align="center"><a href="figures/attack_pipeline.png"><img src="figures/attack_pipeline.png" alt="D-Attack and DH-CoT method overview" width="90%"></a></p>
 
-**Todo List**
+## RTA dataset series
 
-- Upload experimental code
-- Upload RTA datasets
-- Upload MDH's jailbreak response detection judgment files
+The five cleaned RTA subsets contain 1,205 questions. Their harmful-category distributions are shown below.
 
+<p align="center"><a href="figures/rta_distribution.png"><img src="figures/rta_distribution.png" alt="Harmful-category distributions in the RTA dataset suite" width="90%"></a></p>
 
+Dataset sizes, file descriptions, and source terms are provided in the [dataset guide](datasets/README.md).
 
-## RTA Dataset Series
+## Evaluation results
 
-### Data Distribution
+### Vanilla queries
 
-<p align="center">
-  <img src="./figures/fig4_RTA_construction.png" alt="子图1" width="100%">
-</p>
+The following table shows vanilla-query results on the original and RTA datasets. Values are presented as 1 minus the rejection rate. AC denotes adult content.
 
-
-
-### Dataset Cleaning Summary
-
-
-|      Dataset      | Original Size | Current Size | Types | Removed | Modified | Edit-Removal Ratio (%) |
-| :---------------: | :-----------: | :----------: | :---: | :-----: | :------: | :--------------------: |
-|     SafeBench     |      500      |     350      | 7/10  |   150   |    38    |          37.6          |
-|    QuestionSet    |      390      |     270      | 9/13  |   120   |    49    |         43.34          |
-|  JailbreakStudy   |      40       |      35      |  7/8  |    5    |    8     |          32.5          |
-|    BeaverTails    |      700      |     500      | 9/14  |   200   |   190    |         55.71          |
-| MaliciousEducator |      50       |      50      | 8/10  |    0    |    0     |           0            |
-
-The *Type* column shows the number of types after cleaning (removal / merging) and the original count. The *Removed* and *Modified* columns indicate samples removed and rewrote, respectively.
-
-
-
-### Rejection Rate on Vanilla Attack
-
-<p align="center">
-    <img src='./figures/fig5_vallia_attack.png' alt='fig1_title.png' title='fig1_title.png' style="width:85%;" />
-</p>
-
-Rejection rates (reported as complements, which is 1 − rejection rate) for each dataset, to facilitate comparison with results in  section of *Jailbreak Results*. *All* includes all malicious types of samples; *w/o AC* excludes samples of Adult Content. Vanilla Attack refers to the situation where the prompt in the dataset is used to directly query the LLM.
-
-
-
-
-## Jailbreak Results
+<p align="center"><a href="figures/vanilla_attack_results.png"><img src="figures/vanilla_attack_results.png" alt="Vanilla-query results before and after dataset cleaning" width="85%"></a></p>
 
 ### D-Attack
 
-<p align="center">
-    <img src='./figures/fig6_D-Atk_attack.png' alt='fig1_title.png' title='fig1_title.png' style="width:65%;" />
-</p>
+Attack success rates of D-Attack on the five RTA subsets:
 
-<p align="center">
-    ASR of D-Attack on the RTA-series datasets.
-</p>
+<p align="center"><a href="figures/d_attack_results.png"><img src="figures/d_attack_results.png" alt="D-Attack success rates on the RTA datasets" width="65%"></a></p>
 
+### Attack comparison
 
+The table below compares attack success rates across methods and victim models on RTA-MaliciousEducator. Blue shading marks reasoning-model columns. Sys and Dep denote the system and developer prompt roles.
 
+<p align="center"><a href="figures/attack_comparison.png"><img src="figures/attack_comparison.png" alt="Attack success rates across methods and models on RTA-MaliciousEducator" width="100%"></a></p>
 
-### DH-CoT
+Partial evaluation result files, including model responses, judge scores, and annotations, are provided in [examples/](examples/).
 
-<p align="center">
-    <img src='./figures/fig7_DH-CoT_attack.png' alt='fig1_title.png' title='fig1_title.png' style="width:100%;" />
-</p>
+## Repository contents
 
-This table compares ASR of DH-CoT and D-Attack with current state-of-the-art jailbreak attacks on the RTA-MaliciousEducator dataset.. The compared methods fall into three categories: **1) query-based gray-box methods (top section)**, **2) template-based black-box methods (middle section)**, and **3) CoT-based black-box methods (bottom section)**. *Vanilla* denotes the attack success rate without any attack applied. PAIR and TAP are query-based gray-box methods, while DeepInception and SelfCipher are template-based black-box methods. H-CoT is a CoT-based black-box method. White-box methods require gradients or other internal model information and therefore cannot be evaluated on commercial black-box models. The column labels *3.5, 4o, 4.1, 5, 5.1, o1-m, o1, o3-m, o3, o4-m, 2.5-pro, 2.5-f-t, c35-s, c37-s, c4-s, c37-s-t, c4-s-t, d-v3, d-r1-0528*, and *d-r1* denote the victim models G*PT-3.5, GPT-4o, GPT-4.1, GPT-5, GPT-5.1, o1-Mini, o1, o3-Mini, o3, o4-Mini, Gemini-2.5-pro, Gemini-2.5-Flash-Thinking, Claude-3-5-Sonnet, Claude-3-7-Sonnet, Claude-3-7-Sonnet-Thinking, Claude-Sonnet-4, Claude-Sonnet-4-Thinking, Deepseek-V3, Deepseek-R1-250528*, and *Deepseek-R1*, respectively. *Sys* and *Dep* abbreviate the System and Developer prompt roles. A short dash (“-”) indicates the victim does not support the developer role. Blue-shaded columns mark victims that are reasoning models. All experimental results are computed using MDH. Each experiment is run three times and the best value is reported. The best result for each victim model is highlighted in bold.
+| Directory | Contents |
+| --- | --- |
+| [code/](code/) | Response generation, MDH annotation, model scoring, and D1-D12 templates |
+| [datasets/1_Original_Datasets_Formatted/](datasets/1_Original_Datasets_Formatted/) | Five formatted source subsets |
+| [datasets/2_RTA/](datasets/2_RTA/) | Five cleaned RTA subsets, three H-CoT variants, and four 50-question input files |
+| [examples/](examples/) | Partial evaluation results: 18 response-scoring, prompt-scoring, and annotation files |
+| [figures/](figures/) | Method diagrams, RTA data distributions, and evaluation-result tables |
 
+Result filenames identify the dataset, method or judge, model, and, where applicable, template ID and prompt role. The [evaluation file guide](examples/README.md) describes the experimental conditions, counts, and rates.
 
+## Read the data and results
 
+All dataset and example files are UTF-8 CSVs. The five cleaned RTA subsets contain **1,205 questions** in total. Source-subset sizes and column definitions are in the [dataset guide](datasets/README.md).
 
+To summarize the stored example labels and scores locally, from the repository root:
 
+```bash
+python3 code/summarize_examples.py
+```
+
+This command uses only the Python standard library and does not call a model. It reports counts and rates directly from the saved columns. Original question, response, score, and manual-annotation values are retained in the CSVs.
+
+## Use the experiment code
+
+See [code/README.md](code/README.md) for the environment, entry points, and configuration. Experiments require model-provider credentials and, for local Llama Guard scoring, model weights and a suitable GPU. Credentials are read from environment variables; [.env.example](.env.example) lists their names.
+
+[Developer_Messages.py](code/Templates/Developer_Messages.py) defines the D1-D12 templates. The standalone response-generation entry point uses the **developer** role; **System** and **Developer** in result filenames identify their respective experimental conditions.
+
+## Citation and data terms
+
+```bibtex
+@misc{zhang2025jailbreaking,
+  title={Jailbreaking Commercial Black-Box LLMs with Explicitly Harmful Prompts},
+  author={Chiyu Zhang and Lu Zhou and Xiaogang Xu and Jiafei Wu and Liming Fang and Zhe Liu},
+  year={2025},
+  eprint={2508.10390},
+  archivePrefix={arXiv}
+}
+```
+
+The [MIT license](LICENSE) applies to the project software. Datasets and embedded third-party text retain their source terms, including the noncommercial conditions for BeaverTails and H-CoT. Attribution and source-specific terms are listed in [datasets/README.md](datasets/README.md) and [datasets/licenses/](datasets/licenses/). The collection contains harmful prompts and model responses used for safety evaluation.

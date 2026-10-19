@@ -1,0 +1,3 @@
+# cfg_API.yaml
+base_url: ${oc.env:DH_COT_API_BASE_URL}
+api_key: ${oc.env:DH_COT_API_KEY}

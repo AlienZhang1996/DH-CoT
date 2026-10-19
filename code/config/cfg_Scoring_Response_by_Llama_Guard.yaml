@@ -1,0 +1,7 @@
+# cfg_Scoring_Response_by_Llama_Guard.yaml
+input_file: "./outputs/responses/1_RTA-SafeBench/Vanilla/responses_gpt-4o.csv" # File to collect the responses from the victim model
+output_dir: "./outputs/judgements" # File to save the jailbreak judgements of the responses
+judger_name: "Llama-Guard-3-1B" # Can be Llama-Guard-3-1B, Llama-Guard-3-8B, Llama-Guard-3-8B-INT8, Llama-Guard-3-11B-Vision, Llama-Guard-4-12B
+judger_dir_guard: "${oc.env:DH_COT_MODELS_DIR,./models}/Llama-Guard-3-1B" # Judge Model directory
+conversation_type:  "User_Assistant" # Can be User, Assistant, User_Assistant, User_Image, Assistant_Image, User_Assistant_Image. Text Llama can not use *_Image.
+judgement_type: "Num_10"  # Can be Origin, Num_1, Num_10, Bool

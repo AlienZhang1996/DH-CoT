@@ -1,0 +1,22 @@
+# cfg_Generate_Response.yaml
+input_dir: "../datasets/2_RTA" # CSV files of malicious questions
+output_dir: "./outputs/responses" # Path to save responses
+model_names: # Victim Model
+ - "gpt-3.5-turbo"
+ - "gpt-3.5-turbo-1106"
+ - "gpt-4o"
+ - "gpt-4.1"
+ - "o1-mini-2024-09-12"
+ - "o1-2024-12-17"
+ - "o3-mini-2025-01-31"
+ - "o3-2025-04-16"
+ - "o4-mini"
+ - "gpt-5"
+user_templates: # Can be "Vanilla" (DH-CoT, fill H-CoT by datasets), "Car_Answer" (D-Attack), Car_Modify
+ - "Vanilla"
+ - "Car_Answer"
+ - "Car_Modify"
+developer_message: "D12" # Template ID; see ../Templates/Developer_Messages.py
+chunk_size: -1 # # Split dataset into chunks and processed with multithreading if chunk_size is not -1
+with_HCoT: False # Did the dataset use H-CoT
+HCoT_dataset: None # If the processing dataset use H-CoT, set the dataset path
